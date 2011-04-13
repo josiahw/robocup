@@ -38,12 +38,14 @@ class TeamInformation;
 #include <vector>
 #include <string>
 #include "Motion/Tools/MotionScript.h"
+#include "Tools/Optimisation/PGRLOptimiser.h"
 
 class ScriptedPoseProvider : public BehaviourProvider
 {
 public:
     ScriptedPoseProvider(Behaviour* manager);
     ~ScriptedPoseProvider();
+
 protected:
     void doBehaviour();
     void doSelectedMotion();
@@ -58,6 +60,7 @@ private:
     bool m_saving_images;
     bool m_script_playing;
     MotionScript m_script;
+    PGRLOptimiser* optimiser;
 
 };
 

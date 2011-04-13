@@ -195,9 +195,10 @@ void Getup::process(NUSensorsData* data, NUActionatorsData* actions)
 
 void Getup::playGetup()
 {
+	#ifdef USE_WALK
     if (m_walk)
         m_walk->kill();
-    
+    #endif
     vector<float> fallen;
     if (m_data->get(NUSensorsData::Fallen, fallen))
     {

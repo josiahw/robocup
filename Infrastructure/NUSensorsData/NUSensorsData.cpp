@@ -70,6 +70,8 @@ const NUSensorsData::id_t NUSensorsData::LaserDistance(s_curr_id++, "LaserDistan
 // gps sensors
 const NUSensorsData::id_t NUSensorsData::Gps(s_curr_id++, "Gps", NUSensorsData::m_ids);
 const NUSensorsData::id_t NUSensorsData::Compass(s_curr_id++, "Compass", NUSensorsData::m_ids);
+// ball sensor - webots only
+const NUSensorsData::id_t NUSensorsData::BallGps(s_curr_id++, "BallGps", NUSensorsData::m_ids);
 // battery sensors
 const NUSensorsData::id_t NUSensorsData::BatteryVoltage(s_curr_id++, "BatteryVoltage", NUSensorsData::m_ids);
 const NUSensorsData::id_t NUSensorsData::BatteryCurrent(s_curr_id++, "BatteryCurrent", NUSensorsData::m_ids);
@@ -466,7 +468,7 @@ bool NUSensorsData::getFallen(vector<float>& data)
 /*! @brief Gets the zmp [x(cm), y(cm)]
  	@param id the id of the zmp you want (All/Body, LFoot, RFoot)
  	@param data will be updated with the [x(cm), y(cm)]
- 	@return true if valid, false if invalid
+ 	@return true if valid, false if invalid 
  */
 bool NUSensorsData::getZmp(const id_t& id, vector<float>& data)
 {
@@ -494,6 +496,15 @@ bool NUSensorsData::getGps(vector<float>& data)
 bool NUSensorsData::getCompass(float& data)
 {
     return get(Compass, data);
+}
+
+/*! @brief Gets the Ball Gps data [x(cm), y(cm)] relative to the centre of the 'field'
+ 	@param data will be updated with the [x(cm), y(cm)]
+ 	@return true if valid, false if invalid
+ */
+bool NUSensorsData::getBallGps(vector<float>& data)
+{
+    return get(BallGps, data);
 }
 
 /*! @brief Gets the distance data from the selected sensor.

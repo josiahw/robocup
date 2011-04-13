@@ -31,7 +31,11 @@ class ScriptJob;
 class NUWalk;
 #include "Motion/NUMotionProvider.h"
 
-class Script
+#include "Kinematics/Kinematics.h"
+#include "Infrastructure/NUActionatorsData/NUActionatorsData.h"
+#include <string>
+
+class Script: public NUMotionProvider
 {
 public:
     Script(NUWalk* walk, NUSensorsData* data, NUActionatorsData* actions);
